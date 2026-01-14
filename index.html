@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Placetrace | Software, die Arbeit abnimmt. Ohne Vorabkosten.</title>
+    <meta name="description" content="Maßgeschneiderte Business-Software für KMUs. Automatisierung von Rechnungsprüfung, Abgleich & Reporting. Kostenlose Entwicklung, monatliche Abrechnung." />
+    <meta name="author" content="Placetrace Solutions" />
+    <meta name="keywords" content="Business Software, Automatisierung, KMU, Rechnungsprüfung, Reporting, Berlin" />
+
+    <meta property="og:title" content="Placetrace | Software, die Arbeit abnimmt" />
+    <meta property="og:description" content="Maßgeschneiderte Business-Software für KMUs. Kostenlose Entwicklung, monatliche Abrechnung." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://placetrace.com" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:locale" content="de_DE" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Placetrace | Software, die Arbeit abnimmt" />
+    <meta name="twitter:description" content="Maßgeschneiderte Business-Software für KMUs. Kostenlose Entwicklung, monatliche Abrechnung." />
+    <meta name="twitter:image" content="/og-image.png" />
+    <!-- GitHub Pages SPA redirect handler -->
+    <script type="text/javascript">
+      (function(l) {
+        if (l.search[1] === '/' ) {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&')
+          }).join('?');
+          window.history.replaceState(null, null,
+              l.pathname.slice(0, -1) + decoded + l.hash
+          );
+        }
+      }(window.location))
+    </script>
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
