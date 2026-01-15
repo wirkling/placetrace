@@ -6,7 +6,6 @@ import ContactFormModal from "./ContactFormModal";
 const Hero = () => {
   const trustBadges = [
     { label: "12+ Jahre Erfahrung", icon: "⭐" },
-    { label: "Sitz in Berlin", icon: "📍" },
     { label: "Deutsche/EU-Server", icon: "🇪🇺" },
     { label: "DSGVO-konform", icon: "🛡️" },
   ];

@@ -97,10 +97,10 @@ const About = () => {
                   </footer>
                 </blockquote>
 
-                {/* Location Badge */}
+                {/* Server Badge */}
                 <div className="flex items-center gap-3 text-primary-foreground/80">
-                  <span className="text-2xl">📍</span>
-                  <span>Sitz in Berlin • Deutsche/EU-Server</span>
+                  <span className="text-2xl">🇪🇺</span>
+                  <span>Deutsche/EU-Server • DSGVO-konform</span>
                 </div>
               </div>
             </div>

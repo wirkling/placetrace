@@ -24,7 +24,6 @@ const Footer = () => {
           <div className="flex items-center gap-6 text-sm text-primary-foreground/60">
             <Link to="/impressum" className="hover:text-primary-foreground transition-colors">Impressum</Link>
             <Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">Datenschutz</Link>
-            <span>Berlin, Deutschland</span>
           </div>
 
           {/* Copyright */}
