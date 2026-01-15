@@ -33,23 +33,32 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Open mailto with form data
-    const subject = encodeURIComponent(`Anfrage von ${formData.name}${formData.company ? ` (${formData.company})` : ""}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nE-Mail: ${formData.email}\nUnternehmen: ${formData.company || "Nicht angegeben"}\n\nNachricht:\n${formData.message}`
-    );
-    window.location.href = `mailto:dirk@placetrace.com?subject=${subject}&body=${body}`;
+    try {
+      const response = await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({
+          "form-name": "contact",
+          ...formData,
+        }).toString(),
+      });
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    toast.success("E-Mail-Client geöffnet. Bitte senden Sie die Nachricht ab.");
+      if (!response.ok) throw new Error("Form submission failed");
 
-    // Reset after showing success
-    setTimeout(() => {
-      setIsOpen(false);
-      setIsSubmitted(false);
-      setFormData({ name: "", email: "", company: "", message: "" });
-    }, 2000);
+      setIsSubmitted(true);
+      toast.success("Nachricht gesendet! Wir melden uns in Kürze.");
+
+      setTimeout(() => {
+        setIsOpen(false);
+        setIsSubmitted(false);
+        setFormData({ name: "", email: "", company: "", message: "" });
+      }, 2000);
+    } catch (error) {
+      console.error("Form error:", error);
+      toast.error("Fehler beim Senden. Bitte versuchen Sie es erneut.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (
