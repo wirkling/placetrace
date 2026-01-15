@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Dialog,
   DialogContent,
@@ -28,6 +30,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
     company: "",
     message: "",
   });
+  const [privacyAccepted, setPrivacyAccepted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,6 +55,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
         setIsOpen(false);
         setIsSubmitted(false);
         setFormData({ name: "", email: "", company: "", message: "" });
+        setPrivacyAccepted(false);
       }, 2000);
     } catch (error) {
       console.error("Form error:", error);
@@ -159,10 +163,31 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               />
             </div>
 
+            <div className="flex items-start space-x-3">
+              <Checkbox
+                id="privacy"
+                checked={privacyAccepted}
+                onCheckedChange={(checked) => setPrivacyAccepted(checked === true)}
+                className="mt-1"
+              />
+              <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
+                Ich habe die{" "}
+                <Link
+                  to="/datenschutz"
+                  target="_blank"
+                  className="text-coral hover:underline"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Datenschutzerklärung
+                </Link>{" "}
+                gelesen und stimme der Verarbeitung meiner Daten zu. *
+              </Label>
+            </div>
+
             <Button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-accent hover:bg-coral-light text-accent-foreground font-semibold py-6 shadow-glow"
+              disabled={isSubmitting || !privacyAccepted}
+              className="w-full bg-accent hover:bg-coral-light text-accent-foreground font-semibold py-6 shadow-glow disabled:opacity-50"
             >
               {isSubmitting ? (
                 <>
