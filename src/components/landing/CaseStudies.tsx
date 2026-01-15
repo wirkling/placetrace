@@ -74,13 +74,13 @@ const CaseStudies = () => {
         {/* Case Study Cards */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {cases.map((caseStudy, index) => (
-            <AnimatedItem 
+            <AnimatedItem
               key={caseStudy.title}
               delay={index * 0.1}
-              className="group bg-card rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1"
+              className="group bg-navy rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 flex flex-col"
             >
               {/* Header */}
-              <div className="p-6 pb-4 border-b border-border">
+              <div className="p-6 pb-4 border-b border-border bg-card">
                 <span className="inline-block bg-secondary text-secondary-foreground text-xs font-medium px-3 py-1 rounded-full mb-3">
                   {caseStudy.industry}
                 </span>
@@ -90,7 +90,7 @@ const CaseStudies = () => {
               </div>
 
               {/* Before/After */}
-              <div className="p-6 space-y-4">
+              <div className="p-6 space-y-4 bg-card flex-1">
                 {/* Before */}
                 <div className="relative pl-4 border-l-2 border-muted">
                   <span className="text-xs font-semibold text-muted-foreground uppercase tracking-wider">Vorher</span>
@@ -120,7 +120,7 @@ const CaseStudies = () => {
               </div>
 
               {/* Savings Footer */}
-              <div className="p-6 pt-4 bg-navy text-primary-foreground">
+              <div className="p-6 pt-4 bg-navy text-primary-foreground mt-auto">
                 <div className="flex items-center justify-between">
                   <div>
                     <span className="text-sm text-primary-foreground/70">Monatliche Ersparnis</span>
