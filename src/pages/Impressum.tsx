@@ -2,6 +2,34 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 
+const ImpressumImage = () => (
+  <svg
+    viewBox="0 0 500 280"
+    className="w-full max-w-lg"
+    role="img"
+    aria-label="Impressum Kontaktdaten"
+  >
+    <style>
+      {`
+        .impressum-text { font-family: 'Inter', system-ui, sans-serif; fill: hsl(220, 15%, 45%); }
+        .impressum-heading { font-family: 'Space Grotesk', system-ui, sans-serif; font-weight: 600; fill: hsl(220, 30%, 15%); }
+      `}
+    </style>
+    <text className="impressum-heading" x="0" y="24" fontSize="18">Angaben gemäß § 5 TMG</text>
+    <text className="impressum-text" x="0" y="52" fontSize="14">Placetrace Solutions UG (haftungsbeschränkt)</text>
+    <text className="impressum-text" x="0" y="72" fontSize="14">Schmerberger Weg 88f</text>
+    <text className="impressum-text" x="0" y="92" fontSize="14">14548 Schwielowsee OT Caputh</text>
+    <text className="impressum-text" x="0" y="112" fontSize="14">Deutschland</text>
+
+    <text className="impressum-heading" x="0" y="148" fontSize="18">Vertreten durch</text>
+    <text className="impressum-text" x="0" y="176" fontSize="14">Geschäftsführer: Dirk Wilfling</text>
+
+    <text className="impressum-heading" x="0" y="212" fontSize="18">Kontakt</text>
+    <text className="impressum-text" x="0" y="240" fontSize="14">Telefon: +49 176 726 38 087</text>
+    <text className="impressum-text" x="0" y="260" fontSize="14">E-Mail: dirk [at] placetrace [dot] com</text>
+  </svg>
+);
+
 const Impressum = () => {
   return (
     <div className="min-h-screen bg-background">
@@ -22,57 +50,10 @@ const Impressum = () => {
           <h1 className="font-display text-4xl font-bold text-foreground mb-8">Impressum</h1>
 
           <div className="prose prose-gray dark:prose-invert max-w-none space-y-6">
-            <section>
-              <h2 className="font-display text-xl font-semibold text-foreground">Angaben gemäß § 5 TMG</h2>
-              <p className="text-muted-foreground">
-                Placetrace Solutions UG (haftungsbeschränkt)<br />
-                [Straße und Hausnummer]<br />
-                [PLZ] Berlin<br />
-                Deutschland
-              </p>
-            </section>
+            {/* Anti-scraping SVG for contact details */}
+            <ImpressumImage />
 
-            <section>
-              <h2 className="font-display text-xl font-semibold text-foreground">Vertreten durch</h2>
-              <p className="text-muted-foreground">
-                Geschäftsführer: Dirk Wilfling
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-foreground">Kontakt</h2>
-              <p className="text-muted-foreground">
-                Telefon: +49 176 726 38 087<br />
-                E-Mail: dirk@placetrace.com
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-foreground">Registereintrag</h2>
-              <p className="text-muted-foreground">
-                Eintragung im Handelsregister<br />
-                Registergericht: Amtsgericht Charlottenburg<br />
-                Registernummer: [HRB Nummer]
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-foreground">Umsatzsteuer-ID</h2>
-              <p className="text-muted-foreground">
-                Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:<br />
-                [USt-IdNr.]
-              </p>
-            </section>
-
-            <section>
-              <h2 className="font-display text-xl font-semibold text-foreground">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h2>
-              <p className="text-muted-foreground">
-                Dirk Wilfling<br />
-                [Adresse wie oben]
-              </p>
-            </section>
-
-            <section>
+            <section className="pt-6">
               <h2 className="font-display text-xl font-semibold text-foreground">EU-Streitschlichtung</h2>
               <p className="text-muted-foreground">
                 Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
