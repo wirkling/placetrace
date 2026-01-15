@@ -34,15 +34,27 @@ const Datenschutz = () => {
 
             <section>
               <h2 className="font-display text-xl font-semibold text-foreground">2. Verantwortlicher</h2>
-              <p className="text-muted-foreground">
-                Verantwortlicher für die Datenverarbeitung auf dieser Website ist:<br /><br />
-                Placetrace Solutions UG (haftungsbeschränkt)<br />
-                [Straße und Hausnummer]<br />
-                [PLZ] Berlin<br />
-                Deutschland<br /><br />
-                Telefon: +49 176 726 38 087<br />
-                E-Mail: dirk@placetrace.com
+              <p className="text-muted-foreground mb-4">
+                Verantwortlicher für die Datenverarbeitung auf dieser Website ist:
               </p>
+              <svg
+                viewBox="0 0 400 160"
+                className="w-full max-w-md"
+                role="img"
+                aria-label="Verantwortlicher Kontaktdaten"
+              >
+                <style>
+                  {`
+                    .dsgvo-text { font-family: 'Inter', system-ui, sans-serif; fill: hsl(220, 15%, 45%); }
+                  `}
+                </style>
+                <text className="dsgvo-text" x="0" y="20" fontSize="14">Placetrace Solutions UG (haftungsbeschränkt)</text>
+                <text className="dsgvo-text" x="0" y="42" fontSize="14">Schmerberger Weg 88f</text>
+                <text className="dsgvo-text" x="0" y="64" fontSize="14">14548 Schwielowsee OT Caputh</text>
+                <text className="dsgvo-text" x="0" y="86" fontSize="14">Deutschland</text>
+                <text className="dsgvo-text" x="0" y="116" fontSize="14">Telefon: +49 176 726 38 087</text>
+                <text className="dsgvo-text" x="0" y="138" fontSize="14">E-Mail: dirk [at] placetrace [dot] com</text>
+              </svg>
             </section>
 
             <section>
