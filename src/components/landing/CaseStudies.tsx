@@ -1,4 +1,4 @@
-import { ArrowRight, Clock, TrendingDown } from "lucide-react";
+import { Clock, TrendingDown } from "lucide-react";
 import AnimatedSection, { AnimatedItem } from "./AnimatedSection";
 
 const CaseStudies = () => {
@@ -121,15 +121,10 @@ const CaseStudies = () => {
 
               {/* Savings Footer */}
               <div className="p-6 pt-4 bg-navy text-primary-foreground mt-auto">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <span className="text-sm text-primary-foreground/70">Monatliche Ersparnis</span>
-                    <div className="flex items-baseline gap-2">
-                      <span className="font-display text-2xl font-bold">{caseStudy.savings.hours}h</span>
-                      <span className="text-coral font-semibold">= €{caseStudy.savings.euros}</span>
-                    </div>
-                  </div>
-                  <ArrowRight className="w-5 h-5 text-coral group-hover:translate-x-1 transition-transform" />
+                <span className="text-sm text-primary-foreground/70">Monatliche Ersparnis</span>
+                <div className="flex items-baseline gap-2">
+                  <span className="font-display text-2xl font-bold">{caseStudy.savings.hours}h</span>
+                  <span className="text-coral font-semibold">= €{caseStudy.savings.euros}</span>
                 </div>
               </div>
             </AnimatedItem>
