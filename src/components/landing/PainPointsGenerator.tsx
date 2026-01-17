@@ -6,13 +6,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import { Skeleton } from "@/components/ui/skeleton";
 import AnimatedSection from "./AnimatedSection";
 import {
@@ -53,7 +46,6 @@ const PainPointsGenerator = () => {
   const { t, i18n } = useTranslation();
   const [step, setStep] = useState<Step>("industry");
   const [industry, setIndustry] = useState("");
-  const [customIndustry, setCustomIndustry] = useState("");
   const [painPoints, setPainPoints] = useState<PainPoint[]>([]);
   const [selectedPainPoints, setSelectedPainPoints] = useState<Set<string>>(
     new Set()
@@ -68,9 +60,7 @@ const PainPointsGenerator = () => {
   }) as string[];
 
   const handleGeneratePainPoints = async () => {
-    const selectedIndustry = industry === "other" ? customIndustry : industry;
-
-    if (!selectedIndustry || selectedIndustry.trim().length < 2) {
+    if (!industry || industry.trim().length < 2) {
       toast.error(t("painPoints.errors.industryRequired"));
       return;
     }
@@ -82,7 +72,7 @@ const PainPointsGenerator = () => {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          industry: selectedIndustry,
+          industry: industry.trim(),
           language: i18n.language as "de" | "en",
         }),
       });
@@ -126,7 +116,6 @@ const PainPointsGenerator = () => {
     setIsSubmitting(true);
 
     try {
-      const selectedIndustry = industry === "other" ? customIndustry : industry;
       const selectedPainPointsData = painPoints.filter((p) =>
         selectedPainPoints.has(p.id)
       );
@@ -143,7 +132,7 @@ const PainPointsGenerator = () => {
           "form-name": "pain-points-lead",
           email,
           phone: phone || "",
-          industry: selectedIndustry,
+          industry: industry.trim(),
           painPoints: painPointsText,
         }).toString(),
       });
@@ -167,7 +156,6 @@ const PainPointsGenerator = () => {
   const resetForm = () => {
     setStep("industry");
     setIndustry("");
-    setCustomIndustry("");
     setPainPoints([]);
     setSelectedPainPoints(new Set());
     setEmail("");
@@ -218,53 +206,24 @@ const PainPointsGenerator = () => {
                     >
                       {t("painPoints.industryLabel")}
                     </Label>
-                    <Select value={industry} onValueChange={setIndustry}>
-                      <SelectTrigger className="w-full bg-background border-border">
-                        <SelectValue
-                          placeholder={t("painPoints.industryPlaceholder")}
-                        />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {industries.map((ind) => (
-                          <SelectItem key={ind} value={ind}>
-                            {ind}
-                          </SelectItem>
-                        ))}
-                        <SelectItem value="other">
-                          {t("painPoints.otherIndustry")}
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
+                    <Input
+                      id="industry"
+                      list="industry-suggestions"
+                      value={industry}
+                      onChange={(e) => setIndustry(e.target.value)}
+                      placeholder={t("painPoints.industryPlaceholder")}
+                      className="bg-background border-border"
+                    />
+                    <datalist id="industry-suggestions">
+                      {industries.map((ind) => (
+                        <option key={ind} value={ind} />
+                      ))}
+                    </datalist>
                   </div>
-
-                  {industry === "other" && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="space-y-2"
-                    >
-                      <Label
-                        htmlFor="customIndustry"
-                        className="text-foreground font-medium"
-                      >
-                        {t("painPoints.customIndustryLabel")}
-                      </Label>
-                      <Input
-                        id="customIndustry"
-                        value={customIndustry}
-                        onChange={(e) => setCustomIndustry(e.target.value)}
-                        placeholder={t("painPoints.customIndustryPlaceholder")}
-                        className="bg-background border-border"
-                      />
-                    </motion.div>
-                  )}
 
                   <Button
                     onClick={handleGeneratePainPoints}
-                    disabled={
-                      !industry || (industry === "other" && !customIndustry)
-                    }
+                    disabled={!industry || industry.trim().length < 2}
                     className="w-full bg-accent hover:bg-coral-light text-accent-foreground font-semibold py-6 shadow-glow"
                   >
                     <Sparkles className="w-5 h-5 mr-2" />

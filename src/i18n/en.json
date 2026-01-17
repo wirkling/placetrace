@@ -234,6 +234,7 @@
     "description": "Select your industry and discover typical operational challenges we can automate.",
     "industries": [
       "Trades",
+      "Construction",
       "Retail",
       "Wholesale",
       "Services",
