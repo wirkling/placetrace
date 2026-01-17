@@ -52,9 +52,9 @@ const handler: Handler = async (event: HandlerEvent) => {
     });
 
     const systemPrompt = language === "de"
-      ? `Du bist ein McKinsey Partner und Experte für Geschäftsprozesse und operative Herausforderungen für KMUs.
+      ? `Du bist ein McKinsey Partner und Experte für operative backend Geschäftsprozesse und Herausforderungen für KMUs.
 Antworte NUR mit einem JSON-Array. Keine Einleitung, keine Erklärung.`
-      : `You are a McKinsey Partner and expert in business processes and operational challenges for SMBs.
+      : `You are a McKinsey Partner and expert in operative backend business processes and challenges for SMBs.
 Respond ONLY with a JSON array. No introduction, no explanation.`;
 
     const userPrompt = language === "de"
