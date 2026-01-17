@@ -46,7 +46,7 @@ const CTA = () => {
             <Button
               size="lg"
               variant="outline"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-medium text-lg px-8 py-6"
+              className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-medium text-lg px-8 py-6"
               asChild
             >
               <a href="tel:+4917672638087">
