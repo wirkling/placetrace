@@ -77,6 +77,32 @@ const PainPointsGenerator = () => {
     returnObjects: true,
   }) as string[];
 
+  // Mapping from industry names to cached file names
+  const industryFileMap: Record<string, Record<string, string>> = {
+    de: {
+      "Handwerk": "handwerk-de",
+      "Baugewerbe": "baugewerbe-de",
+      "Einzelhandel": "einzelhandel-de",
+      "Großhandel": "grosshandel-de",
+      "Dienstleistungen": "dienstleistungen-de",
+      "Gastgewerbe": "gastgewerbe-de",
+      "Immobilien": "immobilien-de",
+      "Logistik": "logistik-de",
+      "Produktion": "produktion-de",
+    },
+    en: {
+      "Trades": "trades-en",
+      "Construction": "construction-en",
+      "Retail": "retail-en",
+      "Wholesale": "wholesale-en",
+      "Services": "services-en",
+      "Hospitality": "hospitality-en",
+      "Real Estate": "real-estate-en",
+      "Logistics": "logistics-en",
+      "Manufacturing": "manufacturing-en",
+    },
+  };
+
   const handleGeneratePainPoints = async () => {
     if (!industry || industry.trim().length < 2) {
       toast.error(t("painPoints.errors.industryRequired"));
@@ -84,22 +110,43 @@ const PainPointsGenerator = () => {
     }
 
     setStep("loading");
+    const trimmedIndustry = industry.trim();
+    const lang = i18n.language === "en" ? "en" : "de";
+    const cachedFile = industryFileMap[lang]?.[trimmedIndustry];
 
     try {
-      const response = await fetch("/.netlify/functions/generate-pain-points", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          industry: industry.trim(),
-          language: i18n.language as "de" | "en",
-        }),
-      });
+      let data;
 
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+      if (cachedFile) {
+        // Use cached data for preset industries with fake delay
+        const [response] = await Promise.all([
+          fetch(`/data/pain-points/${cachedFile}.json`),
+          new Promise((resolve) => setTimeout(resolve, 4000)), // 4 second fake delay
+        ]);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        data = await response.json();
+      } else {
+        // Call LLM for custom industries
+        const response = await fetch("/.netlify/functions/generate-pain-points", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            industry: trimmedIndustry,
+            language: lang,
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        data = await response.json();
       }
 
-      const data = await response.json();
       setPainPoints(data.painPoints);
       setStep("selection");
     } catch (err) {
