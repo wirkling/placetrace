@@ -131,6 +131,11 @@ const PainPointsGenerator = () => {
         selectedPainPoints.has(p.id)
       );
 
+      // Format pain points as readable text with title and description
+      const painPointsText = selectedPainPointsData
+        .map((p, i) => `${i + 1}. ${p.title}: ${p.description}`)
+        .join("\n\n");
+
       const response = await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -139,9 +144,7 @@ const PainPointsGenerator = () => {
           email,
           phone: phone || "",
           industry: selectedIndustry,
-          painPoints: JSON.stringify(
-            selectedPainPointsData.map((p) => p.title)
-          ),
+          painPoints: painPointsText,
         }).toString(),
       });
 
