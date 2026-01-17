@@ -17,9 +17,14 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
+          {/* German (default) routes */}
           <Route path="/" element={<Index />} />
           <Route path="/impressum" element={<Impressum />} />
           <Route path="/datenschutz" element={<Datenschutz />} />
+          {/* English routes */}
+          <Route path="/en" element={<Index />} />
+          <Route path="/en/impressum" element={<Impressum />} />
+          <Route path="/en/datenschutz" element={<Datenschutz />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

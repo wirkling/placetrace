@@ -3,9 +3,15 @@ import { initReactI18next } from 'react-i18next';
 import de from './de.json';
 import en from './en.json';
 
-const savedLanguage = typeof window !== 'undefined'
-  ? localStorage.getItem('language') || 'de'
-  : 'de';
+// Detect language from URL path first, then localStorage, default to German
+const getInitialLanguage = () => {
+  if (typeof window === 'undefined') return 'de';
+
+  const path = window.location.pathname;
+  if (path.startsWith('/en')) return 'en';
+
+  return localStorage.getItem('language') || 'de';
+};
 
 i18n
   .use(initReactI18next)
@@ -14,7 +20,7 @@ i18n
       de: { translation: de },
       en: { translation: en }
     },
-    lng: savedLanguage,
+    lng: getInitialLanguage(),
     fallbackLng: 'de',
     interpolation: {
       escapeValue: false
