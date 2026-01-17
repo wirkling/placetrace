@@ -1,5 +1,6 @@
 import Header from "@/components/landing/Header";
 import Hero from "@/components/landing/Hero";
+import PainPointsGenerator from "@/components/landing/PainPointsGenerator";
 import CaseStudies from "@/components/landing/CaseStudies";
 import Services from "@/components/landing/Services";
 import Process from "@/components/landing/Process";
@@ -15,6 +16,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <PainPointsGenerator />
         <CaseStudies />
         <Services />
         <Process />

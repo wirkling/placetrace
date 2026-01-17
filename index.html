@@ -79,6 +79,14 @@
       <textarea name="message"></textarea>
     </form>
 
+    <!-- Hidden form for Pain Points Lead capture -->
+    <form name="pain-points-lead" data-netlify="true" data-netlify-honeypot="bot-field" hidden>
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <input type="text" name="industry" />
+      <textarea name="painPoints"></textarea>
+    </form>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
