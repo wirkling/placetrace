@@ -13,6 +13,43 @@ interface PainPoint {
   category: string;
 }
 
+// Retry helper with exponential backoff
+async function withRetry<T>(
+  fn: () => Promise<T>,
+  maxRetries: number = 3,
+  baseDelayMs: number = 1000
+): Promise<T> {
+  let lastError: Error | undefined;
+
+  for (let attempt = 0; attempt < maxRetries; attempt++) {
+    try {
+      return await fn();
+    } catch (error) {
+      lastError = error instanceof Error ? error : new Error(String(error));
+
+      // Check if it's a retryable error (overloaded, rate limit, connection)
+      const errorMessage = lastError.message.toLowerCase();
+      const isRetryable =
+        errorMessage.includes("overloaded") ||
+        errorMessage.includes("rate") ||
+        errorMessage.includes("529") ||
+        errorMessage.includes("connection") ||
+        errorMessage.includes("timeout");
+
+      if (!isRetryable || attempt === maxRetries - 1) {
+        throw lastError;
+      }
+
+      // Exponential backoff: 1s, 2s, 4s
+      const delayMs = baseDelayMs * Math.pow(2, attempt);
+      console.log(`Retry attempt ${attempt + 1}/${maxRetries} after ${delayMs}ms...`);
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+    }
+  }
+
+  throw lastError;
+}
+
 const handler: Handler = async (event: HandlerEvent) => {
   // CORS headers
   const headers = {
@@ -95,16 +132,19 @@ Respond with this exact JSON format:
   }
 ]`;
 
-    const response = await anthropic.messages.create({
-      model: "claude-3-haiku-20240307",
-      max_tokens: 2000,
-      system: systemPrompt,
-      messages: [
-        {
-          role: "user",
-          content: userPrompt,
-        },
-      ],
+    // Call Claude API with retry logic
+    const response = await withRetry(async () => {
+      return anthropic.messages.create({
+        model: "claude-3-haiku-20240307",
+        max_tokens: 2000,
+        system: systemPrompt,
+        messages: [
+          {
+            role: "user",
+            content: userPrompt,
+          },
+        ],
+      });
     });
 
     // Extract text content
