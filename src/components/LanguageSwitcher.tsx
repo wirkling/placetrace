@@ -34,7 +34,7 @@ const LanguageSwitcher = () => {
         className={`px-3 py-1 text-sm font-medium rounded-full transition-all ${
           isGerman
             ? 'bg-coral text-white'
-            : 'text-primary-foreground/60 hover:text-primary-foreground'
+            : 'text-muted-foreground hover:text-foreground'
         }`}
       >
         DE
@@ -44,7 +44,7 @@ const LanguageSwitcher = () => {
         className={`px-3 py-1 text-sm font-medium rounded-full transition-all ${
           !isGerman
             ? 'bg-coral text-white'
-            : 'text-primary-foreground/60 hover:text-primary-foreground'
+            : 'text-muted-foreground hover:text-foreground'
         }`}
       >
         EN
