@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +22,7 @@ interface ContactFormModalProps {
 }
 
 const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -49,7 +51,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
       if (!response.ok) throw new Error("Form submission failed");
 
       setIsSubmitted(true);
-      toast.success("Nachricht gesendet! Wir melden uns in Kürze.");
+      toast.success(t("contact.toast.success"));
 
       setTimeout(() => {
         setIsOpen(false);
@@ -59,7 +61,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
       }, 2000);
     } catch (error) {
       console.error("Form error:", error);
-      toast.error("Fehler beim Senden. Bitte versuchen Sie es erneut.");
+      toast.error(t("contact.toast.error"));
     } finally {
       setIsSubmitting(false);
     }
@@ -80,11 +82,10 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
       <DialogContent className="sm:max-w-md bg-card border-border">
         <DialogHeader>
           <DialogTitle className="font-display text-2xl font-bold text-foreground">
-            Kostenloses Erstgespräch
+            {t("contact.title")}
           </DialogTitle>
           <DialogDescription className="text-muted-foreground">
-            Erzählen Sie uns von Ihrem Workflow. Wir melden uns innerhalb von 24
-            Stunden.
+            {t("contact.description")}
           </DialogDescription>
         </DialogHeader>
 
@@ -94,24 +95,24 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               <CheckCircle2 className="w-8 h-8 text-coral" />
             </div>
             <h3 className="font-display text-xl font-bold text-foreground mb-2">
-              Vielen Dank!
+              {t("contact.success.title")}
             </h3>
             <p className="text-muted-foreground">
-              Wir melden uns in Kürze bei Ihnen.
+              {t("contact.success.message")}
             </p>
           </div>
         ) : (
           <form onSubmit={handleSubmit} className="space-y-4 mt-4">
             <div className="space-y-2">
               <Label htmlFor="name" className="text-foreground">
-                Name *
+                {t("contact.form.name")} {t("contact.form.required")}
               </Label>
               <Input
                 id="name"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                placeholder="Ihr Name"
+                placeholder={t("contact.form.namePlaceholder")}
                 required
                 className="bg-background border-border focus:border-coral"
               />
@@ -119,7 +120,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
             <div className="space-y-2">
               <Label htmlFor="email" className="text-foreground">
-                E-Mail *
+                {t("contact.form.email")} {t("contact.form.required")}
               </Label>
               <Input
                 id="email"
@@ -127,7 +128,7 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="ihre@email.de"
+                placeholder={t("contact.form.emailPlaceholder")}
                 required
                 className="bg-background border-border focus:border-coral"
               />
@@ -135,28 +136,28 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
 
             <div className="space-y-2">
               <Label htmlFor="company" className="text-foreground">
-                Unternehmen
+                {t("contact.form.company")}
               </Label>
               <Input
                 id="company"
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
-                placeholder="Ihr Unternehmen"
+                placeholder={t("contact.form.companyPlaceholder")}
                 className="bg-background border-border focus:border-coral"
               />
             </div>
 
             <div className="space-y-2">
               <Label htmlFor="message" className="text-foreground">
-                Was kostet Sie Zeit? *
+                {t("contact.form.message")} {t("contact.form.required")}
               </Label>
               <Textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
-                placeholder="Beschreiben Sie kurz den Workflow oder die Aufgabe, die zu viel Zeit kostet..."
+                placeholder={t("contact.form.messagePlaceholder")}
                 required
                 rows={4}
                 className="bg-background border-border focus:border-coral resize-none"
@@ -171,16 +172,16 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
                 className="mt-1"
               />
               <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
-                Ich habe die{" "}
+                {t("contact.form.privacyText")}{" "}
                 <Link
                   to="/datenschutz"
                   target="_blank"
                   className="text-coral hover:underline"
                   onClick={(e) => e.stopPropagation()}
                 >
-                  Datenschutzerklärung
+                  {t("contact.form.privacyLink")}
                 </Link>{" "}
-                gelesen und stimme der Verarbeitung meiner Daten zu. *
+                {t("contact.form.privacyTextEnd")} {t("contact.form.required")}
               </Label>
             </div>
 
@@ -192,12 +193,12 @@ const ContactFormModal = ({ trigger }: ContactFormModalProps) => {
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-5 h-5 mr-2 animate-spin" />
-                  Wird gesendet...
+                  {t("contact.form.sending")}
                 </>
               ) : (
                 <>
                   <Send className="w-5 h-5 mr-2" />
-                  Nachricht senden
+                  {t("contact.form.submit")}
                 </>
               )}
             </Button>

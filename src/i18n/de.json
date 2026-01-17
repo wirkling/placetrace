@@ -1,0 +1,258 @@
+{
+  "header": {
+    "services": "Leistungen",
+    "caseStudies": "Anwendungsfälle",
+    "process": "Prozess",
+    "about": "Über Uns",
+    "pricing": "Preise",
+    "faq": "FAQ",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "badge": "Für Handwerk, Handel & Dienstleister",
+    "title": "Software, die Arbeit abnimmt.",
+    "titleHighlight": "Ohne Vorabkosten.",
+    "description": "Wir entwickeln Ihre Lösung kostenlos. Erst wenn die Software läuft und Zeit spart, zahlen Sie monatlich für Hosting und Wartung.",
+    "cta": "Kostenloses Erstgespräch",
+    "learnMore": "Mehr erfahren",
+    "trustItems": ["Keine Vorabkosten", "Entwicklung inklusive", "6-12 Monate Laufzeit"],
+    "dashboard": {
+      "label": "Zeitersparnis diesen Monat",
+      "saved": "Gespart/Monat",
+      "faster": "Schneller",
+      "automated": "Automatisiert"
+    },
+    "badges": {
+      "experience": "12+ Jahre Erfahrung",
+      "servers": "Deutsche/EU-Server",
+      "gdpr": "DSGVO-konform"
+    }
+  },
+  "services": {
+    "badge": "Was Wir Bauen",
+    "title": "Interne Tools, die",
+    "titleHighlight": "funktionieren",
+    "description": "Wir bauen interne Tools, die Excel, E-Mail und manuelle Prüfungen ersetzen.",
+    "items": [
+      {
+        "title": "Rechnungseingang & Prüfung",
+        "description": "Automatisierte Verarbeitung, die E-Mail-Weiterleitung und manuelle Dateneingabe ersetzt. Validieren, routen und verfolgen Sie Rechnungen ohne Tabellenkalkulationen."
+      },
+      {
+        "title": "Abgleich & Reporting",
+        "description": "Maßgeschneiderte Workflows, die Daten aus mehreren Systemen ziehen, Datensätze abgleichen und Berichte automatisch generieren."
+      },
+      {
+        "title": "Compliance & Audit-Tools",
+        "description": "Bereiten Sie sich auf Audits vor mit automatisierter Beweissammlung, Dokumentationsverfolgung und Compliance-Dashboards."
+      },
+      {
+        "title": "Operations-Dashboards",
+        "description": "Echtzeit-Sichtbarkeit durch Zusammenführung von Daten aus mehreren Systemen in eine einheitliche Ansicht."
+      },
+      {
+        "title": "Monatliche Prozesse",
+        "description": "Automatisieren Sie wiederkehrende Aufgaben, die monatlich stattfinden. Von Datenaggregation bis Berichtserstellung."
+      },
+      {
+        "title": "Individuelle Automatisierung",
+        "description": "Kleine, fokussierte Systeme, die eine Aufgabe gut erledigen. Software, die zu Ihrem Prozess passt."
+      }
+    ]
+  },
+  "caseStudies": {
+    "badge": "Echte Ergebnisse",
+    "title": "Ein Schmerzhafter Workflow,",
+    "titleHighlight": "Behoben",
+    "description": "Die meisten Unternehmen brauchen keine weitere SaaS-Plattform. Sie brauchen einen schmerzhaften Workflow, der aufhört, schmerzhaft zu sein.",
+    "before": "Vorher",
+    "after": "Nachher",
+    "monthlySavings": "Monatliche Ersparnis",
+    "items": [
+      {
+        "title": "Rechnungsprüfung im Handwerksbetrieb",
+        "industry": "Handwerk",
+        "beforeDescription": "Mitarbeiterin prüft 50 Rechnungen pro Monat manuell in Excel.",
+        "beforeTime": "12 Stunden/Monat",
+        "afterDescription": "Software prüft automatisch, markiert nur Auffälligkeiten.",
+        "afterTime": "2 Stunden/Monat",
+        "savingsHours": 10,
+        "savingsEuros": 240
+      },
+      {
+        "title": "Bestandsabgleich im Einzelhandel",
+        "industry": "Handel",
+        "beforeDescription": "Wöchentlicher Export aus Kassensystem, manueller Abgleich mit Warenwirtschaft.",
+        "beforeTime": "4 Stunden/Woche",
+        "afterDescription": "Automatischer Abgleich täglich, Dashboard zeigt Abweichungen.",
+        "afterTime": "30 Minuten/Woche",
+        "savingsHours": 14,
+        "savingsEuros": 336
+      },
+      {
+        "title": "Monatsabschluss im Dienstleistungsbetrieb",
+        "industry": "Dienstleister",
+        "beforeDescription": "Daten aus 3 Systemen zusammenführen, Berichte erstellen.",
+        "beforeTime": "2 Tage/Monat",
+        "afterDescription": "Software zieht Daten automatisch, erstellt Berichte auf Knopfdruck.",
+        "afterTime": "2 Stunden/Monat",
+        "savingsHours": 14,
+        "savingsEuros": 672
+      }
+    ]
+  },
+  "process": {
+    "badge": "So funktioniert es",
+    "title": "In 4 Schritten zur",
+    "titleHighlight": "Lösung",
+    "steps": [
+      {
+        "number": "01",
+        "title": "Sie Beschreiben Ihren Workflow",
+        "description": "Erzählen Sie uns von Ihrem manuellen Prozess, dem kaputten Workflow oder der nervigen Aufgabe. Was kostet Zeit? Was ist fehleranfällig?"
+      },
+      {
+        "number": "02",
+        "title": "Wir Entwickeln Kostenlos",
+        "description": "Wir bauen die digitale Lösung. Komplett kostenlos. Keine Vorabzahlung. Kein Entwicklungsbudget. Null Investitionsrisiko für Sie."
+      },
+      {
+        "number": "03",
+        "title": "Sie Nutzen Es",
+        "description": "Sie bekommen die fertige Software. Ihre Mitarbeiter nutzen sie im Alltag. Sie sehen sofort, ob es funktioniert und Zeit spart."
+      },
+      {
+        "number": "04",
+        "title": "Sie Zahlen Monatlich",
+        "description": "Sobald die Software im Einsatz ist, zahlen Sie monatlich für Hosting und Wartung. Mindestlaufzeit: 6-12 Monate."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "Preise",
+    "title": "Faire, transparente",
+    "titleHighlight": "Preise",
+    "description": "Keine versteckten Kosten. Keine Überraschungen. Zahlen Sie nur, wenn die Software läuft.",
+    "development": {
+      "label": "Entwicklung",
+      "price": "€0",
+      "subtitle": "Komplett kostenlos",
+      "description": "Wir entwickeln Ihre Software komplett ohne Vorabkosten. Keine Einrichtungsgebühr. Null Investitionsrisiko für Sie.",
+      "features": [
+        "Anforderungsanalyse inklusive",
+        "Maßgeschneiderte Entwicklung",
+        "Keine Vorabzahlung",
+        "Kein Entwicklungsbudget nötig",
+        "Lieferung in Tagen bis Wochen"
+      ]
+    },
+    "usage": {
+      "label": "Nutzung",
+      "price": "€X",
+      "period": "/Monat",
+      "subtitle": "Abhängig von Komplexität",
+      "description": "Sobald die Software im Einsatz ist, zahlen Sie monatlich für Hosting und Wartung. Die Höhe hängt ab von der Komplexität.",
+      "features": [
+        "Hosting auf deutschen/EU-Servern",
+        "Technische Wartung",
+        "Support bei Fragen",
+        "Kleine Verbesserungen inklusive",
+        "Mindestlaufzeit: 6-12 Monate"
+      ],
+      "aiNote": "Bei KI-Nutzung:",
+      "aiNoteText": "Nutzungsbasierte Kosten fallen zusätzlich an"
+    },
+    "cta": "Kostenloses Erstgespräch vereinbaren"
+  },
+  "about": {
+    "badge": "Über Uns",
+    "title": "Software Ist Günstig Zu Entwickeln Geworden.",
+    "titleHighlight": "Das Verstehen Echter Probleme Ist Es Nicht.",
+    "description": "Placetrace kombiniert Produktmanagement-Erfahrung, tiefes Finanz- und Operations-Know-how und praktische Umsetzung. Das bedeutet weniger Überentwicklung, engeren Fokus und Tools, die tatsächlich genutzt werden.",
+    "features": [
+      {
+        "title": "Keine Multi-Tenant-Plattform",
+        "description": "Die Software wird nur für Sie entwickelt und nur bei Ihnen eingesetzt."
+      },
+      {
+        "title": "Maximale Flexibilität",
+        "description": "Wir haben kein Bedarf, Features zu bauen, die auch für andere Kunden passen müssen."
+      },
+      {
+        "title": "Datensicherheit",
+        "description": "Deutsche/EU-Server, maßgeschneiderte Entwicklung für maximale Privatsphäre."
+      }
+    ],
+    "conclusion": "Ihre Lösung passt perfekt zu Ihrem Prozess - nicht umgekehrt.",
+    "conclusionPrefix": "Das bedeutet:",
+    "stats": {
+      "experience": "Jahre Erfahrung",
+      "gdpr": "DSGVO-konform"
+    },
+    "quote": "Der schwierige Teil ist nicht mehr das Schreiben von Code. Es ist das Verstehen echter Probleme.",
+    "quoteAuthor": "Dirk, Gründer Placetrace",
+    "serverBadge": "Deutsche/EU-Server • DSGVO-konform"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Häufig gestellte",
+    "titleHighlight": "Fragen",
+    "items": [
+      {
+        "question": "Was ist, wenn die Software nicht funktioniert?",
+        "answer": "Wenn das System die vereinbarten Akzeptanzkriterien nicht erfüllt, zahlen Sie nicht. So einfach ist das. Dieses Modell funktioniert, weil wir einen Anreiz haben, Ihr Problem gründlich zu verstehen, bevor wir etwas bauen."
+      },
+      {
+        "question": "Wie lange dauert es, eine Lösung zu entwickeln?",
+        "answer": "Die meisten internen Tools werden in Tagen bis Wochen geliefert, nicht in Monaten. Der Zeitrahmen hängt von der Komplexität des Workflows und den Integrationsanforderungen ab. Wir konzentrieren uns darauf, schnell zu liefern und basierend auf tatsächlicher Nutzung zu iterieren."
+      },
+      {
+        "question": "Übernehmen Sie Hosting und Wartung?",
+        "answer": "Ja. Laufendes Hosting, Wartung und Verbesserungen sind als optionale Dienstleistungen nach der ersten Lieferung verfügbar. Sie entscheiden, welches Unterstützungsniveau für Ihre Bedürfnisse sinnvoll ist."
+      },
+      {
+        "question": "Welche Technologien verwenden Sie?",
+        "answer": "Wir verwenden moderne, bewährte Technologien, die zum jeweiligen Problem passen. Der Tech-Stack wird nach Wartbarkeit, Zuverlässigkeit und Integrationsfähigkeiten ausgewählt—nicht für Lebenslauf-Building. Sie werden nie in proprietären Frameworks eingeschlossen sein."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Haben Sie Eine Aufgabe, Die",
+    "titleHighlight": "Zu Viel Zeit Kostet?",
+    "description": "Rufen Sie an oder schreiben Sie uns. Wir sagen Ihnen schnell, ob wir helfen können.",
+    "button": "Erstgespräch vereinbaren"
+  },
+  "footer": {
+    "impressum": "Impressum",
+    "privacy": "Datenschutz",
+    "copyright": "Alle Rechte vorbehalten."
+  },
+  "contact": {
+    "title": "Kostenloses Erstgespräch",
+    "description": "Erzählen Sie uns von Ihrem Workflow. Wir melden uns innerhalb von 24 Stunden.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Ihr Name",
+      "email": "E-Mail",
+      "emailPlaceholder": "ihre@email.de",
+      "company": "Unternehmen",
+      "companyPlaceholder": "Ihr Unternehmen",
+      "message": "Was kostet Sie Zeit?",
+      "messagePlaceholder": "Beschreiben Sie kurz den Workflow oder die Aufgabe, die zu viel Zeit kostet...",
+      "privacyText": "Ich habe die",
+      "privacyLink": "Datenschutzerklärung",
+      "privacyTextEnd": "gelesen und stimme der Verarbeitung meiner Daten zu.",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "required": "*"
+    },
+    "success": {
+      "title": "Vielen Dank!",
+      "message": "Wir melden uns in Kürze bei Ihnen."
+    },
+    "toast": {
+      "success": "Nachricht gesendet! Wir melden uns in Kürze.",
+      "error": "Fehler beim Senden. Bitte versuchen Sie es erneut."
+    }
+  }
+}

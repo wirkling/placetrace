@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <motion.footer
       initial={{ opacity: 0 }}
@@ -22,13 +25,17 @@ const Footer = () => {
 
           {/* Links */}
           <div className="flex items-center gap-6 text-sm text-primary-foreground/60">
-            <Link to="/impressum" className="hover:text-primary-foreground transition-colors">Impressum</Link>
-            <Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">Datenschutz</Link>
+            <Link to="/impressum" className="hover:text-primary-foreground transition-colors">
+              {t("footer.impressum")}
+            </Link>
+            <Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">
+              {t("footer.privacy")}
+            </Link>
           </div>
 
           {/* Copyright */}
           <div className="text-sm text-primary-foreground/40">
-            © {new Date().getFullYear()} Placetrace. Alle Rechte vorbehalten.
+            © {new Date().getFullYear()} Placetrace. {t("footer.copyright")}
           </div>
         </div>
       </div>

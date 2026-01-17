@@ -1,14 +1,19 @@
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import ContactFormModal from "./ContactFormModal";
 
 const Hero = () => {
+  const { t } = useTranslation();
+
   const trustBadges = [
-    { label: "12+ Jahre Erfahrung", icon: "⭐" },
-    { label: "Deutsche/EU-Server", icon: "🇪🇺" },
-    { label: "DSGVO-konform", icon: "🛡️" },
+    { label: t("hero.badges.experience"), icon: "⭐" },
+    { label: t("hero.badges.servers"), icon: "🇪🇺" },
+    { label: t("hero.badges.gdpr"), icon: "🛡️" },
   ];
+
+  const trustItems = t("hero.trustItems", { returnObjects: true }) as string[];
 
   return (
     <section className="relative min-h-screen flex items-center bg-hero overflow-hidden pt-20">
@@ -36,7 +41,7 @@ const Hero = () => {
             >
               <span className="w-2 h-2 bg-coral rounded-full animate-pulse" />
               <span className="text-sm font-medium text-primary-foreground/90">
-                Für Handwerk, Handel & Dienstleister
+                {t("hero.badge")}
               </span>
             </motion.div>
 
@@ -46,8 +51,8 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground leading-tight mb-6"
             >
-              Software, die Arbeit abnimmt.{" "}
-              <span className="text-coral">Ohne Vorabkosten.</span>
+              {t("hero.title")}{" "}
+              <span className="text-coral">{t("hero.titleHighlight")}</span>
             </motion.h1>
 
             <motion.p
@@ -56,8 +61,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-primary-foreground/80 mb-8 max-w-xl mx-auto lg:mx-0"
             >
-              Wir entwickeln Ihre Lösung kostenlos. Erst wenn die Software läuft und Zeit spart, 
-              zahlen Sie monatlich für Hosting und Wartung.
+              {t("hero.description")}
             </motion.p>
 
             <motion.div
@@ -68,11 +72,11 @@ const Hero = () => {
             >
               <ContactFormModal
                 trigger={
-                  <Button 
-                    size="lg" 
+                  <Button
+                    size="lg"
                     className="bg-accent hover:bg-coral-light text-accent-foreground font-semibold text-lg px-8 py-6 shadow-glow group"
                   >
-                    Kostenloses Erstgespräch
+                    {t("hero.cta")}
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 }
@@ -83,7 +87,7 @@ const Hero = () => {
                 className="bg-transparent border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 font-medium text-lg px-8 py-6"
                 onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Mehr erfahren
+                {t("hero.learnMore")}
               </Button>
             </motion.div>
 
@@ -94,7 +98,7 @@ const Hero = () => {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap gap-3 justify-center lg:justify-start"
             >
-              {["Keine Vorabkosten", "Entwicklung inklusive", "6-12 Monate Laufzeit"].map((item) => (
+              {trustItems.map((item) => (
                 <div key={item} className="flex items-center gap-2 text-primary-foreground/70">
                   <CheckCircle2 className="w-4 h-4 text-coral" />
                   <span className="text-sm">{item}</span>
@@ -114,7 +118,7 @@ const Hero = () => {
               {/* Mock Dashboard */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-primary-foreground/60 text-sm font-medium">Zeitersparnis diesen Monat</span>
+                  <span className="text-primary-foreground/60 text-sm font-medium">{t("hero.dashboard.label")}</span>
                   <span className="text-coral text-sm font-semibold">+47%</span>
                 </div>
                 <div className="text-5xl font-display font-bold text-primary-foreground">
@@ -128,15 +132,15 @@ const Hero = () => {
                     className="h-full bg-gradient-to-r from-coral to-coral-light rounded-full"
                   />
                 </div>
-                
+
                 <div className="grid grid-cols-2 gap-4 pt-4 border-t border-primary-foreground/10">
                   <div>
                     <div className="text-2xl font-display font-bold text-primary-foreground">€672</div>
-                    <div className="text-xs text-primary-foreground/60">Gespart/Monat</div>
+                    <div className="text-xs text-primary-foreground/60">{t("hero.dashboard.saved")}</div>
                   </div>
                   <div>
                     <div className="text-2xl font-display font-bold text-primary-foreground">3x</div>
-                    <div className="text-xs text-primary-foreground/60">Schneller</div>
+                    <div className="text-xs text-primary-foreground/60">{t("hero.dashboard.faster")}</div>
                   </div>
                 </div>
               </div>
@@ -148,7 +152,7 @@ const Hero = () => {
                 transition={{ duration: 0.5, delay: 1 }}
                 className="absolute -top-4 -right-4 bg-coral text-accent-foreground rounded-xl px-4 py-2 shadow-lg animate-float"
               >
-                <span className="font-semibold text-sm">Automatisiert ✓</span>
+                <span className="font-semibold text-sm">{t("hero.dashboard.automated")} ✓</span>
               </motion.div>
             </div>
           </motion.div>

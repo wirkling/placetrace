@@ -1,0 +1,258 @@
+{
+  "header": {
+    "services": "Services",
+    "caseStudies": "Case Studies",
+    "process": "Process",
+    "about": "About",
+    "pricing": "Pricing",
+    "faq": "FAQ",
+    "contact": "Contact"
+  },
+  "hero": {
+    "badge": "For Trades, Retail & Service Providers",
+    "title": "Software that does the work.",
+    "titleHighlight": "No upfront costs.",
+    "description": "We develop your solution for free. Only when the software runs and saves time, you pay monthly for hosting and maintenance.",
+    "cta": "Free Consultation",
+    "learnMore": "Learn More",
+    "trustItems": ["No upfront costs", "Development included", "6-12 months duration"],
+    "dashboard": {
+      "label": "Time saved this month",
+      "saved": "Saved/Month",
+      "faster": "Faster",
+      "automated": "Automated"
+    },
+    "badges": {
+      "experience": "12+ Years Experience",
+      "servers": "German/EU Servers",
+      "gdpr": "GDPR Compliant"
+    }
+  },
+  "services": {
+    "badge": "What We Build",
+    "title": "Internal tools that",
+    "titleHighlight": "work",
+    "description": "We build internal tools that replace Excel, email, and manual checks.",
+    "items": [
+      {
+        "title": "Invoice Processing & Review",
+        "description": "Automated processing that replaces email forwarding and manual data entry. Validate, route, and track invoices without spreadsheets."
+      },
+      {
+        "title": "Reconciliation & Reporting",
+        "description": "Custom workflows that pull data from multiple systems, match records, and generate reports automatically."
+      },
+      {
+        "title": "Compliance & Audit Tools",
+        "description": "Prepare for audits with automated evidence collection, documentation tracking, and compliance dashboards."
+      },
+      {
+        "title": "Operations Dashboards",
+        "description": "Real-time visibility by merging data from multiple systems into a unified view."
+      },
+      {
+        "title": "Monthly Processes",
+        "description": "Automate recurring tasks that happen monthly. From data aggregation to report generation."
+      },
+      {
+        "title": "Custom Automation",
+        "description": "Small, focused systems that do one task well. Software that fits your process."
+      }
+    ]
+  },
+  "caseStudies": {
+    "badge": "Real Results",
+    "title": "A Painful Workflow,",
+    "titleHighlight": "Fixed",
+    "description": "Most businesses don't need another SaaS platform. They need a painful workflow to stop being painful.",
+    "before": "Before",
+    "after": "After",
+    "monthlySavings": "Monthly Savings",
+    "items": [
+      {
+        "title": "Invoice Review in a Trade Business",
+        "industry": "Trade",
+        "beforeDescription": "Employee reviews 50 invoices per month manually in Excel.",
+        "beforeTime": "12 Hours/Month",
+        "afterDescription": "Software reviews automatically, only flags anomalies.",
+        "afterTime": "2 Hours/Month",
+        "savingsHours": 10,
+        "savingsEuros": 240
+      },
+      {
+        "title": "Inventory Reconciliation in Retail",
+        "industry": "Retail",
+        "beforeDescription": "Weekly export from POS system, manual reconciliation with inventory management.",
+        "beforeTime": "4 Hours/Week",
+        "afterDescription": "Automatic daily reconciliation, dashboard shows discrepancies.",
+        "afterTime": "30 Minutes/Week",
+        "savingsHours": 14,
+        "savingsEuros": 336
+      },
+      {
+        "title": "Month-End Close in Service Business",
+        "industry": "Services",
+        "beforeDescription": "Consolidate data from 3 systems, create reports.",
+        "beforeTime": "2 Days/Month",
+        "afterDescription": "Software pulls data automatically, creates reports at the click of a button.",
+        "afterTime": "2 Hours/Month",
+        "savingsHours": 14,
+        "savingsEuros": 672
+      }
+    ]
+  },
+  "process": {
+    "badge": "How It Works",
+    "title": "4 Steps to Your",
+    "titleHighlight": "Solution",
+    "steps": [
+      {
+        "number": "01",
+        "title": "You Describe Your Workflow",
+        "description": "Tell us about your manual process, the broken workflow, or the annoying task. What takes time? What is error-prone?"
+      },
+      {
+        "number": "02",
+        "title": "We Develop For Free",
+        "description": "We build the digital solution. Completely free. No upfront payment. No development budget. Zero investment risk for you."
+      },
+      {
+        "number": "03",
+        "title": "You Use It",
+        "description": "You get the finished software. Your employees use it in their daily work. You see immediately if it works and saves time."
+      },
+      {
+        "number": "04",
+        "title": "You Pay Monthly",
+        "description": "Once the software is in use, you pay monthly for hosting and maintenance. Minimum term: 6-12 months."
+      }
+    ]
+  },
+  "pricing": {
+    "badge": "Pricing",
+    "title": "Fair, transparent",
+    "titleHighlight": "Pricing",
+    "description": "No hidden costs. No surprises. Pay only when the software runs.",
+    "development": {
+      "label": "Development",
+      "price": "€0",
+      "subtitle": "Completely free",
+      "description": "We develop your software completely without upfront costs. No setup fee. Zero investment risk for you.",
+      "features": [
+        "Requirements analysis included",
+        "Custom development",
+        "No upfront payment",
+        "No development budget needed",
+        "Delivery in days to weeks"
+      ]
+    },
+    "usage": {
+      "label": "Usage",
+      "price": "€X",
+      "period": "/Month",
+      "subtitle": "Depending on complexity",
+      "description": "Once the software is in use, you pay monthly for hosting and maintenance. The amount depends on the complexity.",
+      "features": [
+        "Hosting on German/EU servers",
+        "Technical maintenance",
+        "Support for questions",
+        "Small improvements included",
+        "Minimum term: 6-12 months"
+      ],
+      "aiNote": "For AI usage:",
+      "aiNoteText": "Usage-based costs apply additionally"
+    },
+    "cta": "Schedule a Free Consultation"
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "Software Has Become Cheap To Develop.",
+    "titleHighlight": "Understanding Real Problems Hasn't.",
+    "description": "Placetrace combines product management experience, deep finance and operations know-how, and practical implementation. This means less over-engineering, tighter focus, and tools that actually get used.",
+    "features": [
+      {
+        "title": "No Multi-Tenant Platform",
+        "description": "The software is developed only for you and deployed only at your location."
+      },
+      {
+        "title": "Maximum Flexibility",
+        "description": "We don't need to build features that also have to work for other customers."
+      },
+      {
+        "title": "Data Security",
+        "description": "German/EU servers, custom development for maximum privacy."
+      }
+    ],
+    "conclusion": "Your solution fits your process perfectly - not the other way around.",
+    "conclusionPrefix": "This means:",
+    "stats": {
+      "experience": "Years Experience",
+      "gdpr": "GDPR Compliant"
+    },
+    "quote": "The hard part is no longer writing code. It's understanding real problems.",
+    "quoteAuthor": "Dirk, Founder Placetrace",
+    "serverBadge": "German/EU Servers • GDPR Compliant"
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked",
+    "titleHighlight": "Questions",
+    "items": [
+      {
+        "question": "What if the software doesn't work?",
+        "answer": "If the system doesn't meet the agreed acceptance criteria, you don't pay. It's that simple. This model works because we have an incentive to understand your problem thoroughly before building anything."
+      },
+      {
+        "question": "How long does it take to develop a solution?",
+        "answer": "Most internal tools are delivered in days to weeks, not months. The timeframe depends on the complexity of the workflow and integration requirements. We focus on delivering quickly and iterating based on actual usage."
+      },
+      {
+        "question": "Do you handle hosting and maintenance?",
+        "answer": "Yes. Ongoing hosting, maintenance, and improvements are available as optional services after the initial delivery. You decide what level of support makes sense for your needs."
+      },
+      {
+        "question": "What technologies do you use?",
+        "answer": "We use modern, proven technologies that fit the problem at hand. The tech stack is selected for maintainability, reliability, and integration capabilities—not resume building. You'll never be locked into proprietary frameworks."
+      }
+    ]
+  },
+  "cta": {
+    "title": "Have a Task That",
+    "titleHighlight": "Takes Too Much Time?",
+    "description": "Call or write to us. We'll quickly tell you if we can help.",
+    "button": "Schedule a Consultation"
+  },
+  "footer": {
+    "impressum": "Legal Notice",
+    "privacy": "Privacy Policy",
+    "copyright": "All rights reserved."
+  },
+  "contact": {
+    "title": "Free Consultation",
+    "description": "Tell us about your workflow. We'll get back to you within 24 hours.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your name",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "company": "Company",
+      "companyPlaceholder": "Your company",
+      "message": "What takes your time?",
+      "messagePlaceholder": "Briefly describe the workflow or task that takes too much time...",
+      "privacyText": "I have read the",
+      "privacyLink": "Privacy Policy",
+      "privacyTextEnd": "and agree to the processing of my data.",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "required": "*"
+    },
+    "success": {
+      "title": "Thank You!",
+      "message": "We'll get back to you shortly."
+    },
+    "toast": {
+      "success": "Message sent! We'll get back to you soon.",
+      "error": "Error sending. Please try again."
+    }
+  }
+}
