@@ -1,24 +1,38 @@
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/components/ui/button';
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
-  const toggleLanguage = () => {
-    const newLang = i18n.language === 'de' ? 'en' : 'de';
-    i18n.changeLanguage(newLang);
-    localStorage.setItem('language', newLang);
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+    localStorage.setItem('language', lang);
   };
 
+  const isGerman = i18n.language === 'de';
+
   return (
-    <Button
-      variant="ghost"
-      size="sm"
-      onClick={toggleLanguage}
-      className="text-primary-foreground/80 hover:text-primary-foreground hover:bg-primary-foreground/10 font-medium px-2"
-    >
-      {i18n.language === 'de' ? 'EN' : 'DE'}
-    </Button>
+    <div className="flex items-center bg-primary-foreground/10 rounded-full p-0.5">
+      <button
+        onClick={() => changeLanguage('de')}
+        className={`px-3 py-1 text-sm font-medium rounded-full transition-all ${
+          isGerman
+            ? 'bg-coral text-white'
+            : 'text-primary-foreground/60 hover:text-primary-foreground'
+        }`}
+      >
+        DE
+      </button>
+      <button
+        onClick={() => changeLanguage('en')}
+        className={`px-3 py-1 text-sm font-medium rounded-full transition-all ${
+          !isGerman
+            ? 'bg-coral text-white'
+            : 'text-primary-foreground/60 hover:text-primary-foreground'
+        }`}
+      >
+        EN
+      </button>
+    </div>
   );
 };
 
