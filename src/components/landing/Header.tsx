@@ -22,9 +22,7 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <a href="#" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-display font-bold text-lg">P</span>
-            </div>
+            <img src="/logo.png" alt="Placetrace" className="w-8 h-8" />
             <span className="font-display font-bold text-xl text-foreground">Placetrace</span>
           </a>
 

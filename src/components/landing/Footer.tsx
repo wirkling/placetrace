@@ -17,9 +17,7 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-coral flex items-center justify-center">
-              <span className="text-accent-foreground font-display font-bold text-lg">P</span>
-            </div>
+            <img src="/logo.png" alt="Placetrace" className="w-8 h-8" />
             <span className="font-display font-bold text-xl text-primary-foreground">Placetrace</span>
           </Link>
 
