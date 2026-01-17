@@ -7,6 +7,19 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Skeleton } from "@/components/ui/skeleton";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from "@/components/ui/command";
 import AnimatedSection from "./AnimatedSection";
 import {
   Sparkles,
@@ -19,7 +32,10 @@ import {
   BarChart3,
   ArrowRight,
   RotateCcw,
+  ChevronsUpDown,
+  Check,
 } from "lucide-react";
+import { cn } from "@/lib/utils";
 import { toast } from "sonner";
 
 interface PainPoint {
@@ -46,6 +62,8 @@ const PainPointsGenerator = () => {
   const { t, i18n } = useTranslation();
   const [step, setStep] = useState<Step>("industry");
   const [industry, setIndustry] = useState("");
+  const [comboboxOpen, setComboboxOpen] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
   const [painPoints, setPainPoints] = useState<PainPoint[]>([]);
   const [selectedPainPoints, setSelectedPainPoints] = useState<Set<string>>(
     new Set()
@@ -156,6 +174,7 @@ const PainPointsGenerator = () => {
   const resetForm = () => {
     setStep("industry");
     setIndustry("");
+    setSearchValue("");
     setPainPoints([]);
     setSelectedPainPoints(new Set());
     setEmail("");
@@ -200,25 +219,67 @@ const PainPointsGenerator = () => {
               >
                 <div className="max-w-md mx-auto space-y-6">
                   <div className="space-y-2">
-                    <Label
-                      htmlFor="industry"
-                      className="text-foreground font-medium"
-                    >
+                    <Label className="text-foreground font-medium">
                       {t("painPoints.industryLabel")}
                     </Label>
-                    <Input
-                      id="industry"
-                      list="industry-suggestions"
-                      value={industry}
-                      onChange={(e) => setIndustry(e.target.value)}
-                      placeholder={t("painPoints.industryPlaceholder")}
-                      className="bg-background border-border"
-                    />
-                    <datalist id="industry-suggestions">
-                      {industries.map((ind) => (
-                        <option key={ind} value={ind} />
-                      ))}
-                    </datalist>
+                    <Popover open={comboboxOpen} onOpenChange={setComboboxOpen}>
+                      <PopoverTrigger asChild>
+                        <Button
+                          variant="outline"
+                          role="combobox"
+                          aria-expanded={comboboxOpen}
+                          className="w-full justify-between bg-background border-border text-left font-normal h-10"
+                        >
+                          {industry || t("painPoints.industryPlaceholder")}
+                          <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
+                        </Button>
+                      </PopoverTrigger>
+                      <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
+                        <Command>
+                          <CommandInput
+                            placeholder={t("painPoints.customIndustryPlaceholder")}
+                            value={searchValue}
+                            onValueChange={setSearchValue}
+                          />
+                          <CommandList>
+                            <CommandEmpty>
+                              {searchValue.trim().length >= 2 && (
+                                <button
+                                  className="w-full px-2 py-3 text-sm text-left hover:bg-accent rounded"
+                                  onClick={() => {
+                                    setIndustry(searchValue.trim());
+                                    setComboboxOpen(false);
+                                  }}
+                                >
+                                  {t("painPoints.useCustom", { value: searchValue })}
+                                </button>
+                              )}
+                            </CommandEmpty>
+                            <CommandGroup>
+                              {industries.map((ind) => (
+                                <CommandItem
+                                  key={ind}
+                                  value={ind}
+                                  onSelect={(value) => {
+                                    setIndustry(value);
+                                    setSearchValue("");
+                                    setComboboxOpen(false);
+                                  }}
+                                >
+                                  <Check
+                                    className={cn(
+                                      "mr-2 h-4 w-4",
+                                      industry === ind ? "opacity-100" : "opacity-0"
+                                    )}
+                                  />
+                                  {ind}
+                                </CommandItem>
+                              ))}
+                            </CommandGroup>
+                          </CommandList>
+                        </Command>
+                      </PopoverContent>
+                    </Popover>
                   </div>
 
                   <Button

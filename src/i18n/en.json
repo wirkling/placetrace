@@ -248,6 +248,7 @@
     "customIndustryLabel": "Other Industry",
     "customIndustryPlaceholder": "Enter your industry",
     "otherIndustry": "Other...",
+    "useCustom": "Use \"{{value}}\"",
     "generateButton": "Generate Pain Points",
     "generating": "Analyzing your industry...",
     "loadingTitle": "AI is analyzing your industry",

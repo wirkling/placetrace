@@ -248,6 +248,7 @@
     "customIndustryLabel": "Andere Branche",
     "customIndustryPlaceholder": "Ihre Branche eingeben",
     "otherIndustry": "Andere...",
+    "useCustom": "\"{{value}}\" verwenden",
     "generateButton": "Schmerzpunkte generieren",
     "generating": "Analysiere Ihre Branche...",
     "loadingTitle": "KI analysiert Ihre Branche",
