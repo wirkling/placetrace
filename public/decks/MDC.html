@@ -176,6 +176,31 @@ document.addEventListener('DOMContentLoaded', async function() {
     if (window.Babel && typeof window.Babel.transformScriptTags === 'function') {
       window.Babel.transformScriptTags();
     }
+
+    const styleOverride = document.createElement('style');
+    styleOverride.textContent = 'html,body{overflow:auto!important;height:auto!important;min-height:100%}#stage-wrap{position:relative!important;inset:auto!important;display:block!important;margin:0 auto!important}#stage{transform-origin:top left!important}';
+    document.head.appendChild(styleOverride);
+
+    const MIN_SCALE = 0.5;
+    function customFit() {
+      const stage = document.getElementById('stage');
+      const wrap = document.getElementById('stage-wrap');
+      if (!stage || !wrap) return;
+      const w = window.innerWidth, h = window.innerHeight;
+      let s = Math.min(w / 1920, h / 1080);
+      if (s < MIN_SCALE) s = MIN_SCALE;
+      stage.style.transform = 'scale(' + s + ')';
+      wrap.style.width = (1920 * s) + 'px';
+      wrap.style.height = (1080 * s) + 'px';
+    }
+    window.addEventListener('resize', customFit);
+    customFit();
+
+    const cta = document.createElement('a');
+    cta.href = 'MDC-building.html';
+    cta.textContent = 'View inside a building →';
+    cta.style.cssText = 'position:fixed;top:16px;right:16px;z-index:99999;padding:8px 14px;background:rgba(7,9,15,0.85);color:#bcd9a4;text-decoration:none;font:13px/1 -apple-system,BlinkMacSystemFont,sans-serif;border:1px solid rgba(188,217,164,0.45);border-radius:8px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);';
+    document.body.appendChild(cta);
   } catch (err) {
     setStatus('Error unpacking: ' + err.message);
     console.error('Bundle unpack error:', err);

@@ -169,6 +169,25 @@ document.addEventListener('DOMContentLoaded', async function() {
       window.Babel.transformScriptTags();
     }
 
+    const styleOverride = document.createElement('style');
+    styleOverride.textContent = 'html,body{overflow:auto!important;height:auto!important;min-height:100%}#stage-wrap{position:relative!important;inset:auto!important;display:block!important;margin:0 auto!important}#stage{transform-origin:top left!important}';
+    document.head.appendChild(styleOverride);
+
+    const MIN_SCALE = 0.5;
+    function customFit() {
+      const stage = document.getElementById('stage');
+      const wrap = document.getElementById('stage-wrap');
+      if (!stage || !wrap) return;
+      const w = window.innerWidth, h = window.innerHeight;
+      let s = Math.min(w / 1920, h / 1080);
+      if (s < MIN_SCALE) s = MIN_SCALE;
+      stage.style.transform = 'scale(' + s + ')';
+      wrap.style.width = (1920 * s) + 'px';
+      wrap.style.height = (1080 * s) + 'px';
+    }
+    window.addEventListener('resize', customFit);
+    customFit();
+
     const backLink = document.createElement('a');
     backLink.href = 'MDC.html';
     backLink.textContent = '← Back to overview';
