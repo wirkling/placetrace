@@ -1,1 +1,5 @@
+# Cumulus operator dashboard — reverse-proxied from Vercel (locked by magic link there)
+/cumulus https://cumulus-dashboard-six.vercel.app/cumulus 200
+/cumulus/* https://cumulus-dashboard-six.vercel.app/cumulus/:splat 200
+
 /* /index.html 200
